@@ -54,15 +54,15 @@ public class ClientController {
 
 
     @GetMapping("/{id}/contacts")
-    private ResponseEntity<Contacts> findContactsById(@RequestParam String id) {
+    private ResponseEntity<Contacts> findContactsById(@PathVariable String id) {
         Contacts contacts = new Contacts();
         contacts.getContacts().addAll(clientService.findContactsById(id));
 
         return ResponseEntity.ok(contacts);
     }
 
-    @GetMapping("/{id}/contacts")
-    private ResponseEntity<Contacts> findContactsById(@RequestParam String id,
+    @GetMapping("/{id}/contacts/withType")
+    private ResponseEntity<Contacts> findContactsByContactTypeAndId(@PathVariable String id,
                                                       @RequestParam ContactType contactType) {
         Contacts contacts = new Contacts();
         contacts.getContacts().addAll(

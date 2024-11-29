@@ -14,6 +14,8 @@ import java.util.Set;
 @Builder
 public class ResponseClientDto {
 
+    private String id;
+
     private String name;
 
     private Set<String> emails = new HashSet<>();
